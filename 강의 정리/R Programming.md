@@ -65,7 +65,7 @@ R : TRUE(T)
 
 * 벡터(팩터), 행열, 배열, 데이터프레임, 리스트
 
-![R](C:\Users\HYM\Desktop\R.JPG)
+![R](https://github.com/HWANG593/R_Programming/blob/master/%EC%9D%B4%EB%AF%B8%EC%A7%80/Data.JPG?raw=true)
 
 
 
@@ -84,3 +84,21 @@ R : TRUE(T)
 
 #### 행렬(matrix)
 
+* 2차원의 벡터
+
+* 동일 타입의 데이터만 저장 가능
+
+* 인덱싱 : **[행의인덱싱, 열의인덱싱]**, **[행의 인덱싱, ]**, **[, 열의 인덱싱]**
+
+  * 만약 하나의 행 or 하나의 열을 선택한다면 **1차원 벡터**로 바꿔버린다.
+  * drop 속성 - 행렬구조 유지      -> 즉, **2차원**을 유지해라.
+
+* 행렬 생성 방법 : ```matrix(data=벡터, nrow=행의 갯수, ncol=열의 갯수)``` (default 열 우선)
+
+  ​							```matrix(data=벡터, nrow=행의 갯수, ncol=열의 갯수, byrow=TRUE)```
+
+  ​							```rbind(벡터), cbind(벡터)```
+
+* dim(matrix) : 행렬이 몇 차원인지 체크, nrow(matrix), ncol(matrix)
+* 이외 : colnames(m), rownames(m), colSums(m), rowSums(m), colMeans(m), rowMeans(m), sum(m)
+* apply(m, 1또는 2, 함수)
