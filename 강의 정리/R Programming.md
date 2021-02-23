@@ -102,3 +102,32 @@ R : TRUE(T)
 * dim(matrix) : 행렬이 몇 차원인지 체크, nrow(matrix), ncol(matrix)
 * 이외 : colnames(m), rownames(m), colSums(m), rowSums(m), colMeans(m), rowMeans(m), sum(m)
 * apply(m, 1또는 2, 함수)
+
+
+
+#### 팩터(factor)
+
+* 가능한 범주값(level) 만으로 구성되는 벡터
+* 팩터 생성 방법 : 
+  * ```factor(벡터)```, ```factor(벡터[,levels = 레벨벡터])```
+  *  ```factor(벡터[,levels=레벨벡터], ordered=TRUE)```
+
+* 팩터의 레벨 정보 추출 : levels(팩터변수)
+
+
+
+#### 데이터프레임(data.frame)
+
+* 2차원 구조
+* 열 단위로 **서로다른 타입의 데이터**들로 구성 가능
+* **모든 열의 데이터 개수(행의 개수)는 동일해야 한다**
+* 데이터프레임 생성 방법 : 
+  * ```data.frame(벡터들)```, ```data.frame(열이름 = 벡터)```,
+  * ```data.frame(벡터들, [,stringsAsFactor = False])``` 4.0 이전엔 default = T , 4.0 이후 F로 변경
+  * ```as.data.frame(벡터 or 행렬)```
+
+* 데이터프레임 변환 : rbind(df, 벡터), cbind(df, 벡터)
+* 데이터프레임의 구조 확인 : **str(df)**, dim(df)
+* 인덱싱 : [행의 인덱싱, 열의 인덱싱], [열의 인덱싱], df$컬럼이름, [[열 인덱싱]]
+* 원하는 행과 열 추출 : subset(df, subset=(조건), select=컬럼명),  df[조건, 컬럼명]
+
