@@ -1,15 +1,17 @@
 # R Programming
 
-#### R의 자료형
+## R 언어
+
+### R의 자료형
 
 * 문자형(character) : 문자, 문자열
 * 수치형(numeric) : 정수(integer), 실수(double)
 * 복소수형(complex) : 실수 + 허수
 * 논리형(logical) : 참값과 거짓값
 
+<br>
 
-
-#### R의 리터럴(데이터 값)
+### R의 리터럴(데이터 값)
 
 * 문자형(character)리터럴 : "가나다", '가나다', "", '', '123', "abc"
 
@@ -19,7 +21,7 @@
 * NA : 데이터 셋의 내부에 존재하지 않는 값(결측치)를 의미 - 셋은 있는데 몇번째 위치에 값이 없다
 * NaN(not a number) : 숫자가 아님, Inf(무한대 값)
 
-
+<br>
 
 #### 타입 체크 함수
 
@@ -29,14 +31,14 @@
 * is.double(x) - 실수형
 * is.integer(x) - 정수형
 
-
+<br>
 
 #### 자동 형변환 규칙
 
 * 문자형 > 복소수형 > 수치형 > 논리형
 * 즉,  문자형 + 논리형 = 문자형
 
-
+<br>
 
 #### 강제 형변환 함수
 
@@ -47,7 +49,7 @@
 * as.integer(x)
 * as.logical(x)
 
-
+<br>
 
 #### 자료형 또는 구조 확인 함수
 
@@ -59,7 +61,7 @@
 
 R : TRUE(T)
 
-
+<br>
 
 ### R의 데이터 셋
 
@@ -67,7 +69,7 @@ R : TRUE(T)
 
 ![R](https://github.com/HWANG593/R_Programming/blob/master/%EC%9D%B4%EB%AF%B8%EC%A7%80/Data.JPG?raw=true)
 
-
+<br>
 
 #### 벡터(vector)
 
@@ -80,7 +82,7 @@ R : TRUE(T)
 * 인덱싱 : **1**부터 시작하는 인덱스 값과 [인덱스] 연산자 사용
 * 주요 함수 : length(), names(), sort(), order()
 
-
+<br>
 
 #### 행렬(matrix)
 
@@ -103,7 +105,7 @@ R : TRUE(T)
 * 이외 : colnames(m), rownames(m), colSums(m), rowSums(m), colMeans(m), rowMeans(m), sum(m)
 * apply(m, 1또는 2, 함수)
 
-
+<br>
 
 #### 팩터(factor)
 
@@ -114,7 +116,7 @@ R : TRUE(T)
 
 * 팩터의 레벨 정보 추출 : levels(팩터변수)
 
-
+<br>
 
 #### 데이터프레임(data.frame)
 
@@ -131,3 +133,111 @@ R : TRUE(T)
 * 인덱싱 : [행의 인덱싱, 열의 인덱싱], [열의 인덱싱], df$컬럼이름, [[열 인덱싱]]
 * 원하는 행과 열 추출 : subset(df, subset=(조건), select=컬럼명),  df[조건, 컬럼명]
 
+<br>
+
+#### 리스트(list)
+
+* 저장 가능한 데이터의 타입 or 데이터 셋의 정류에 제한이 없음
+* 서로 다른 구조의 데이터를 하나로 묶을 수 있는 자료구조
+* R에서는 통계 분석의 결과를 리스트 구조로 제시하는 경우가 많다.
+* list() 함수로 리스트를 생성하고, [], [[]], $ 를 통해 부분집합을 뽑아낸다.
+  * [] : 리스트가 포함한 하위 리스트를 뽑아낸다. ( 출력이 list 형태를 유지함 )
+  * [[]], $ : 하위 리스트가 포함한 원소를 추출하고, 계층구조 수준을 한 단계 제거한다. ( list 형태 추출 X )
+* **unlist()** : 리스트 해제, 리스트를 벡터로 변환
+
+<br>
+
+### R의 연산자
+
+| 연산자                         | 기능                            |
+| ------------------------------ | ------------------------------- |
+| {}                             | 블록 정의                       |
+| ()                             | 괄호 기능                       |
+| $                              | 성분 추출                       |
+| [] , [[]]                      | 첨자 표현                       |
+| ^ , **                         | 제곱 연산자                     |
+| -                              | 음의 부호 연산자                |
+| :                              | 연속된 데이터 정의              |
+| %*%  , %/%  ,  %%              | 행렬의 곱,  몫,   나머지 연산자 |
+| * ,  /                         | 곱셈, 나눗셈 연산자             |
+| + ,  -                         | 더하기, 빼기 연산자             |
+| < ,  > ,  <= ,  >=  , ==  , != | 비교 연산자                     |
+| !                              | 부정 연산자                     |
+| &  ,  &&  ,  \|  ,  \|\|       | 논리 연산자                     |
+| <<-                            | 전역 할당 연산자                |
+| <-  ,   =   ,   ->             | 할당 연산자                     |
+
+<br>
+
+### R의 데이터 입출력
+
+#### 데이터 출력 함수
+
+* print(출력데이터, 옵션) 
+  * print(100)
+  * print(data)
+  * print(data, quote=F)
+  * v1<- c("사과", "바나나", "포도")
+  * print(v1), print(v1, print.gap = 10)
+* cat(...., 옵션)
+  * cat(100)
+  * cat(100,200)
+  * cat(100,200,"\n")
+  * cat("aaa","bbb","ccc","\n")
+  * cat(v1, sep="-", "\n")
+* paste(...)
+  * paste("aaa","가나다","123")
+  * "aaa가나다123"
+
+<br>
+
+#### 데이터 셋과 함수 저장하기
+
+* save(list=ls(), file = "all.rda")
+* rm(list=ls())
+* load("all.rda")
+
+<br>
+
+#### 파일에서 데이터 읽어들이기
+
+* nums <- scan ("sample_num.txt")
+* words_ansi <- scan ("sample_ansi.txt", what="")
+* words_utf8 <- scan ("sample_utf8.txt", what="", e ncoding ="UTF 8")
+* lines_ansi <- readLines ("sample_ansi.txt")
+* lines_urf8 <- readLines ("sample_utf8.txt", encoding ="UTF 8")
+* **df1 <- read.csv ("CSV 파일 또는 CSV 를 응답하는 URL")**
+* **df2 <- read.table 일정한 단위 공백 또는 탭등 로 구성되어 있는 텍스트 파일 또는 URL")**
+
+* **write.csv(파일명), write.table(파일명)**
+
+<br>
+
+### 제어문
+
+#### if 문
+
+```R
+if (조건1){
+	수행 명령 문장 1
+}else if (조건2){
+	수행 명령 문장 2
+}else if (조건3){
+	수행 명령 문장 3
+}		:
+		:
+else
+	수행 명령 문장 n
+```
+
+<br>
+
+#### ifelse 함수
+
+* ifelse(조건, 조건이 참일때 명령문1, 조건이 거짓일 때 명령문 2)
+
+<br>
+
+#### switch 함수
+
+등가비교
