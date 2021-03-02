@@ -80,13 +80,9 @@ mySum <- function(x){
 
 
 # 문제 5
-random_number <- function(){
-  return(sample(1:45,6))
-}
-
 myExpr <- function(f){
   if(is.function(f)){
-    return(0)
+    return(f(sample(1:45,6)))
     
   }else{
     stop("수행 안할꺼임!!")
