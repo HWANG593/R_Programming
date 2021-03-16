@@ -41,7 +41,9 @@ result$retweet_text
 content <- result$retweet_text
 content
 content <- gsub("[[:lower:][:upper:][:punct:]]", "", content)   
-content <- na.omit(content)
+#content <- na.omit(content)
+content <- content[!is.na(content)]
+content
 write(content, file = "output/twitter.txt")
 
 

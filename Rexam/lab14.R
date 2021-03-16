@@ -11,7 +11,7 @@ huidong <- c("포도 귤 오렌지")
 
 
 friends <- c(duke, dully, ddochi, donu, gildong, huidong)
-cps <- Corpus(VectorSource(friends))
+cps <- VCorpus(VectorSource(friends))
 dtm <- DocumentTermMatrix(cps)
 as.matrix(dtm)
 # 한글 깨짐

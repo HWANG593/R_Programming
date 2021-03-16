@@ -83,3 +83,4 @@ exam6 <- function(score){
 
 score <- c(80,50,70,66,NA,35)
 exam6(score)
+

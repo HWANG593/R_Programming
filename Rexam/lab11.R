@@ -36,5 +36,5 @@ repeat{
 }
 
 gs25_twotoone <- data.frame(goodsname = eventgoodsname, goodsprice = eventgoodsprice)
-
+View(gs25_twotoone)
 write.csv(gs25_twotoone, file="output/gs25_twotoone.csv")
